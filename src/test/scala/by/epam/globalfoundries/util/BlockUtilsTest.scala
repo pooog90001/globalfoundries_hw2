@@ -4,7 +4,7 @@ import org.scalatest.FunSuite
 
 class BlockUtilsTest extends FunSuite {
 
-  test("should compute sorted list and return total 23") {
+  test("should compute sorted list with one priority") {
     var list = List[PriorityBlock](
       PriorityBlock(1, 0, 3),
       PriorityBlock(1, 2, 7),
@@ -20,7 +20,7 @@ class BlockUtilsTest extends FunSuite {
     assert(actualTotalBlockingTime === expectedTotalBlockingTime)
   }
 
-  test("should compute unsorted list and return total 19") {
+  test("should compute unsorted list with several priorities") {
     var list = List[PriorityBlock](
       PriorityBlock(2, 0, 3),
       PriorityBlock(2, 2, 7),
@@ -53,7 +53,7 @@ class BlockUtilsTest extends FunSuite {
     assert(actualTotalBlockingTime  === expectedTotalBlockingTime)
   }
 
-  test("should compute unsorted list and return total 3") {
+  test("should compute unsorted list with same start time") {
     var list = List[PriorityBlock](
       PriorityBlock(1, 0, 2),
       PriorityBlock(4, 0, 3),
