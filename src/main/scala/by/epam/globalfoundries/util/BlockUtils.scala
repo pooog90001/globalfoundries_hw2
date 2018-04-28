@@ -11,11 +11,12 @@ object BlockUtils {
 
   /*
   * compute total blocking time by priority by task
+  * return map: key - proirity; value - total time this priority
   */
   def getTotalBlockingTime(listBlocks: List[PriorityBlock]) : Map[Int, Int] = {
     val sortedListBlocks = sortByTimeStart(listBlocks)
 
-
+    // map of total time and max end time per every priority
     var valuesByPriorities = Map[Int, (Int, Int)]()
 
     sortedListBlocks.foreach(block => {
